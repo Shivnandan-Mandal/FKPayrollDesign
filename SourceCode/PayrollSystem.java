@@ -21,6 +21,20 @@ public class PayrollSystem {
             DatabaseTempEmployee.add(te);
             DatabaseTempEmployee.showdata();
         }
+        else if(e.getType().equalsIgnoreCase("permanent")==true)
+        {
+            System.out.print("Enter Salary:");
+            int salary=sc.nextInt();
+            PermanentEmployee pe = PermanentEmployee.getPermanentEmployee(e.getID(), salary);
+            DatabasePermanentEmployee.add(pe);
+            DatabasePermanentEmployee.showdata();
+
+        }
+        else
+        {
+            System.out.println("Wrong Type of Employee...");
+            System.out.println("Restart The Program");
+        }
         sc.close();
     }
     public static void main(String args[] )
