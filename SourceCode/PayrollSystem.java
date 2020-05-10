@@ -3,8 +3,8 @@ public class PayrollSystem {
     public static void addEmployee()
     {
         Scanner sc=new Scanner(System.in);
-        System.out.println("Enter ID:");
-        int id=sc.nextInt();
+        System.out.print("Enter ID:");
+        int id=Integer.parseInt(sc.nextLine());
         System.out.print("Enter name:");
         String name = sc.nextLine();
         System.out.print("Enter Type:");
