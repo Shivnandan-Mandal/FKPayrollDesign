@@ -57,6 +57,7 @@ public class PayrollSystem {
         DatabasePermanentEmployee.delete(id);
         DatabaseCommissionedEmployee.delete(id);
         DatabaseTempEmployee.delete(id);
+        DatabaseEmployeeUnion.delete(id);
         sc.close();
     }
     public static void runPayroll()
@@ -105,6 +106,16 @@ public class PayrollSystem {
          }
          sc.close();
     }
+    public static void unionMember()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Employee id: ");
+        int id = sc.nextInt();
+        System.out.print("Enter WeeklyCharge:");
+        int WeeklyCharge = sc.nextInt();
+        EmployeeUnion e = EmployeeUnion.getEmployeeUnion(id, WeeklyCharge);
+        DatabaseEmployeeUnion.add(e);
+    }
     public static void main(String args[] )
     {
         System.out.println("1.Add Employee");
@@ -113,6 +124,7 @@ public class PayrollSystem {
         System.out.println("4.Post a Time Card");
         System.out.println("5.Post a Sales Receipt");
         System.out.println("6.Update Details");
+        System.out.println("7:Union Membership");
         System.out.println("Enter Choice:");
         Scanner sc = new Scanner(System.in);
         int ch =  sc.nextInt();
@@ -135,6 +147,9 @@ public class PayrollSystem {
             break;
             case 6:
             updateTable();
+            break;
+            case 7:
+            unionMember();
             break;
             default: 
             System.out.print("Wrong Choice");
