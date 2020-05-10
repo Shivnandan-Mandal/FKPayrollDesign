@@ -13,7 +13,14 @@ public class PayrollSystem {
         String MOP = sc.next();
         Employee e = Employee.getEmployee(id,name , MOP , type);
         DatabaseEmployee.add(e);
-        DatabaseEmployee.showdata();
+        if(e.getType().equalsIgnoreCase("temp")==true)
+        {
+            System.out.print("Enter Hourly Rate:");
+            int rate=sc.nextInt();
+            TempEmployee te = TempEmployee.getTempEmployee(e.getID(), rate);
+            DatabaseTempEmployee.add(te);
+            DatabaseTempEmployee.showdata();
+        }
         sc.close();
     }
     public static void main(String args[] )
