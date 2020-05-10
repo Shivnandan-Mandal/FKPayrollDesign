@@ -48,9 +48,26 @@ public class PayrollSystem {
         }
         sc.close();
     }
+    public static void delEmployee()
+    {
+        Scanner sc = new Scanner (System.in);
+        System.out.print("Enter Employee id: ");
+        int id = sc.nextInt();
+        DatabaseEmployee.delete(id);
+        DatabasePermanentEmployee.delete(id);
+        DatabaseCommissionedEmployee.delete(id);
+        DatabaseTempEmployee.delete(id);
+        sc.close();
+    }
+    public static void runPayroll()
+    {
+        Payroll.Pay();
+    }
     public static void main(String args[] )
     {
         System.out.println("1.Add Employee");
+        System.out.println("2.Delete Employee");
+        System.out.println("3.Run Payroll");
         System.out.println("Enter Choice:");
         Scanner sc = new Scanner(System.in);
         int ch =  sc.nextInt();
@@ -58,6 +75,12 @@ public class PayrollSystem {
         {
             case 1:
             addEmployee();
+            break;
+            case 2:
+            delEmployee();
+            break;
+            case 3:
+            runPayroll();
             break;
             default: 
             System.out.print("Wrong Choice");

@@ -1,15 +1,12 @@
 import java.util.Date;
-public class CommissionedEmployee {
-    private int id;
+public class CommissionedEmployee extends Employee {
     private int salary;
     private int commission;
     private Date psdate;
     private int rate;
-    void setID(int id) { this.id = id ;}
     void setRate(int rate) { this.rate = rate ;}
     void setSalary(int salary) { this.salary = salary ;}
     void setcommision() { this.commission = 0 ;}
-    int getID()  { return id; }
     int getSalary() { return salary;}
     int getRate() { return rate;}
     Date getpsDate() { return psdate;}
