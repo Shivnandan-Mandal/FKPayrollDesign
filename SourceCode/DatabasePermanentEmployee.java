@@ -37,6 +37,7 @@ public class DatabasePermanentEmployee {
             System.out.println("Exception:"+e);
         }
     }
+
     public static void showdata()
     {
         try(Connection conn = DriverManager.getConnection("jdbc:sqlite:Payroll"))

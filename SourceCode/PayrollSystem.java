@@ -63,11 +63,56 @@ public class PayrollSystem {
     {
         Payroll.Pay();
     }
+    public static void postCard()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Emp id:");
+        int id = sc.nextInt();
+        System.out.print("Enter Hours:");
+        int hrs= sc.nextInt();
+        DatabaseTempEmployee.postTimeCard(id, hrs);
+        sc.close();
+    }
+    public static void postReceipt()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Emp id:");
+        int id = sc.nextInt();
+        System.out.print("Enter Amount:");
+        int amount= sc.nextInt();
+        DatabaseCommissionedEmployee.postSalesReceipt(id, amount);
+        sc.close();
+    }
+    public static void updateTable()
+    {
+        Scanner sc = new Scanner(System.in);
+         System.out.println("1.hourly rate 2.commission rate");
+         System.out.print("Enter choice:");
+         int ch=sc.nextInt();
+         System.out.print("Enter Employee id to update:");
+         int id= sc.nextInt();
+         System.out.print("Enter new Rate:");
+         int rate = sc.nextInt();
+         switch(ch)
+         {
+             case 1:
+             DatabaseTempEmployee.updateRate(id, rate);
+             break;
+             case 2:
+             DatabaseCommissionedEmployee.updateRate(id, rate);
+             default:
+             System.out.println("Wrong Choice");
+         }
+         sc.close();
+    }
     public static void main(String args[] )
     {
         System.out.println("1.Add Employee");
         System.out.println("2.Delete Employee");
         System.out.println("3.Run Payroll");
+        System.out.println("4.Post a Time Card");
+        System.out.println("5.Post a Sales Receipt");
+        System.out.println("6.Update Details");
         System.out.println("Enter Choice:");
         Scanner sc = new Scanner(System.in);
         int ch =  sc.nextInt();
@@ -81,6 +126,15 @@ public class PayrollSystem {
             break;
             case 3:
             runPayroll();
+            break;
+            case 4:
+            postCard();
+            break;
+            case 5:
+            postReceipt();
+            break;
+            case 6:
+            updateTable();
             break;
             default: 
             System.out.print("Wrong Choice");

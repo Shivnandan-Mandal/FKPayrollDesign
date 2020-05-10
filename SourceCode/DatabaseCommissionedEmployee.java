@@ -40,6 +40,36 @@ public class DatabaseCommissionedEmployee {
             System.out.println("Exception:"+e);
         }
     }
+    public static void postSalesReceipt(int id , int amount)
+    {
+        String sql = " update CEmployee set commission=commission+rate*(?) where id = ?";
+        try(Connection conn = DriverManager.getConnection("jdbc:sqlite:Payroll") ; PreparedStatement ps = conn.prepareStatement(sql))
+        { 
+            ps.setInt(1,amount);
+            ps.setInt(2, id);
+            ps.executeUpdate();
+
+        }
+        catch(Exception e)
+        {
+            System.out.println("Exception:"+e);
+        }
+    }
+    public static void updateRate(int id,int rate)
+    {
+        String sql = " update CEmployee set rate=? where id = ?";
+        try(Connection conn = DriverManager.getConnection("jdbc:sqlite:Payroll") ; PreparedStatement ps = conn.prepareStatement(sql))
+        { 
+            ps.setInt(1,rate);
+            ps.setInt(2,id);
+            ps.executeUpdate();
+
+        }
+        catch(Exception e)
+        {
+            System.out.println("Exception:"+e);
+        }
+    }
     public static void showdata()
     {
         try(Connection conn = DriverManager.getConnection("jdbc:sqlite:Payroll"))
