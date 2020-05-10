@@ -30,7 +30,18 @@ public class PayrollSystem {
             DatabasePermanentEmployee.showdata();
 
         }
-        else
+        else if(e.getType().equalsIgnoreCase("commissioned")==true)
+        {
+            System.out.print("Enter Salary:");
+            int salary=sc.nextInt();
+            System.out.print("Enter Commission Rate:");
+            int rate=sc.nextInt();
+            CommissionedEmployee ce = CommissionedEmployee.getCommissionedEmployee(e.getID(), salary, rate);
+            DatabaseCommissionedEmployee.add(ce);
+            DatabaseCommissionedEmployee.showdata();
+
+        }
+        else 
         {
             System.out.println("Wrong Type of Employee...");
             System.out.println("Restart The Program");
