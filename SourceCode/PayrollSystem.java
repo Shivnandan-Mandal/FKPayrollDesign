@@ -19,7 +19,6 @@ public class PayrollSystem {
             int rate=sc.nextInt();
             TempEmployee te = TempEmployee.getTempEmployee(e.getID(), rate);
             DatabaseTempEmployee.add(te);
-            DatabaseTempEmployee.showdata();
         }
         else if(e.getType().equalsIgnoreCase("permanent")==true)
         {
@@ -27,7 +26,6 @@ public class PayrollSystem {
             int salary=sc.nextInt();
             PermanentEmployee pe = PermanentEmployee.getPermanentEmployee(e.getID(), salary);
             DatabasePermanentEmployee.add(pe);
-            DatabasePermanentEmployee.showdata();
 
         }
         else if(e.getType().equalsIgnoreCase("commissioned")==true)
@@ -38,7 +36,6 @@ public class PayrollSystem {
             int rate=sc.nextInt();
             CommissionedEmployee ce = CommissionedEmployee.getCommissionedEmployee(e.getID(), salary, rate);
             DatabaseCommissionedEmployee.add(ce);
-            DatabaseCommissionedEmployee.showdata();
 
         }
         else 
